@@ -1,9 +1,12 @@
-package com.hduhelp.apidemo.api.info.model;
+package com.hduhelp.apidemo.info.model;
 
 import com.google.gson.annotations.SerializedName;
-import com.hduhelp.apidemo.model.BaseResponse;
+import com.hduhelp.apidemo.common.compact.FromGoResponse;
 
-public class PersonInfoResponse extends BaseResponse {
+public class PersonInfoResponse extends FromGoResponse {
+    @SerializedName("STAFFID")
+    public String staffID;
+
     @SerializedName("GRADE")
     public String grade;
 
@@ -18,4 +21,7 @@ public class PersonInfoResponse extends BaseResponse {
 
     @SerializedName("UNITCODE")
     public String unitCode;
+
+    @SerializedName("UNITNAME")
+    public String unitName;
 }

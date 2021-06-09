@@ -1,4 +1,4 @@
-package com.hduhelp.apidemo.model;
+package com.hduhelp.apidemo.common.compact;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -11,7 +11,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class BaseResponse {
+public class FromGoResponse {
     static{
         GsonBuilder builder=new GsonBuilder();
         builder.registerTypeAdapter(StubData.class,new Adapter());
@@ -39,7 +39,7 @@ public class BaseResponse {
         return error==0;
     }
 
-    public <T extends BaseResponse> T getData(Class<T> classOfT) {
+    public <T extends FromGoResponse> T getData(Class<T> classOfT) {
         if("".equals(stubData.value)){ //go的默认值问题，不设定msg的情况下返回的是""而不是null
             try {
                 return classOfT.newInstance();
@@ -55,15 +55,15 @@ public class BaseResponse {
         return result;
     }
 
-    public static BaseResponse create(int error, String msg){
-        BaseResponse response=new BaseResponse();
+    public static FromGoResponse create(int error, String msg){
+        FromGoResponse response=new FromGoResponse();
         response.error=error;
         response.msg=msg;
         return response;
     }
 
-    public static BaseResponse fromJson(String json){
-        return gson.fromJson(json,BaseResponse.class);
+    public static FromGoResponse fromJson(String json){
+        return gson.fromJson(json, FromGoResponse.class);
     }
 
     private static final class Adapter extends TypeAdapter<StubData>{

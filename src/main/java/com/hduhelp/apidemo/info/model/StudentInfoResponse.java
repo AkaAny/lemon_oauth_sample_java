@@ -1,9 +1,9 @@
-package com.hduhelp.apidemo.api.info.model;
+package com.hduhelp.apidemo.info.model;
 
 import com.google.gson.annotations.SerializedName;
-import com.hduhelp.apidemo.model.BaseResponse;
+import com.hduhelp.apidemo.common.compact.FromGoResponse;
 
-public class StudentInfoResponse extends BaseResponse {
+public class StudentInfoResponse extends FromGoResponse {
     @SerializedName("CLASSID")
     public String classID;
 

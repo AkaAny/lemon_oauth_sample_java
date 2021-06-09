@@ -1,8 +1,8 @@
-package com.hduhelp.apidemo.api.info;
+package com.hduhelp.apidemo.info;
 
-import com.hduhelp.apidemo.api.info.model.PersonInfoResponse;
-import com.hduhelp.apidemo.api.info.model.StudentInfoResponse;
-import com.hduhelp.apidemo.api.HttpUtils;
+import com.hduhelp.apidemo.info.model.PersonInfoResponse;
+import com.hduhelp.apidemo.info.model.StudentInfoResponse;
+import com.hduhelp.apidemo.utils.HttpUtils;
 import okhttp3.Request;
 
 import java.io.IOException;

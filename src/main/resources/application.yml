@@ -1,6 +1,7 @@
 oauth:
-  hduhelp:
-    host: https://api.hduhelp.com
-    client_id: client_id
-    client_secret: client_secret
-    redirect_url: http://localhost:8080/callback
+  host: https://api.hduhelp.com
+  client_id: client_id
+  client_secret: client_secret
+  callback_url: http://localhost:8080/oauth/callback
+  callback_redirect_url: http://localhost:8080/user/self
+

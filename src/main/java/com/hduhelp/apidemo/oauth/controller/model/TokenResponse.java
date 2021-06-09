@@ -1,10 +1,10 @@
-package com.hduhelp.apidemo.api.oauth.model;
+package com.hduhelp.apidemo.oauth.controller.model;
 
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
-import com.hduhelp.apidemo.model.BaseResponse;
+import com.hduhelp.apidemo.common.compact.FromGoResponse;
 
-public class TokenResponse extends BaseResponse{
+public class TokenResponse extends FromGoResponse {
 
     @Override
     public boolean isSuccess() {

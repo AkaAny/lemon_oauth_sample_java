@@ -1,7 +1,6 @@
-package com.hduhelp.apidemo.api;
+package com.hduhelp.apidemo.utils;
 
-import com.hduhelp.apidemo.model.BaseResponse;
-import com.hduhelp.apidemo.api.oauth.OAuthAPI;
+import com.hduhelp.apidemo.common.compact.FromGoResponse;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -15,7 +14,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class HttpUtils {
-    private static final Logger logger = LoggerFactory.getLogger(OAuthAPI.class);
+    private static final Logger logger = LoggerFactory.getLogger(HttpUtils.class);
 
     public static HttpUrl makeHttpUrl(String host,String subUrl, @Nullable Map<String,String> queryMap){
         HttpUrl httpUrl= Objects.requireNonNull(HttpUrl.parse(host+subUrl));
@@ -29,12 +28,12 @@ public class HttpUtils {
         return builder.build();
     }
 
-    public static <T extends BaseResponse> T sendAndGetDeserializedResponse(Request request, Class<T> classOfT)
+    public static <T extends FromGoResponse> T sendAndGetDeserializedResponse(Request request, Class<T> classOfT)
             throws IOException,IllegalStateException {
         OkHttpClient client = new OkHttpClient();
         Response response = client.newCall(request).execute();
         String json = Objects.requireNonNull(response.body()).string();
-        logger.debug(json);
-        return BaseResponse.fromJson(json).getData(classOfT);
+        logger.info(json);
+        return FromGoResponse.fromJson(json).getData(classOfT);
     }
 }
